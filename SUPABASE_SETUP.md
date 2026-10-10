@@ -43,3 +43,22 @@ Restart the Vite dev server after changing `.env`.
 ## Important current limitation
 
 The SQL schema and optional browser client are committed, but the existing dashboard still uses demo data. Authentication, live transaction CRUD, and database-backed analytics are not wired into the UI yet. Do not treat the dashboard as a real finance tracker until those steps are implemented and tested.
+
+## 5. Verify the migration
+
+Open `supabase/verify_schema.sql`, run each query in the SQL Editor, and check:
+
+- The first query returns all four table names.
+- The second query returns `row_level_security_enabled = true` for every table.
+- The policies query shows the user-scoped policies.
+- The last query returns the `on_auth_user_created` trigger.
+
+## 6. Enable email authentication
+
+1. In the Supabase dashboard, open **Authentication → Providers** (or **Sign In / Providers**) and make sure Email is enabled.
+2. Open **Authentication → URL Configuration**.
+3. Set the Site URL to your development URL while testing, usually `http://localhost:5173`.
+4. Add `http://localhost:5173/**` (or the exact local callback URLs accepted by the dashboard) to the Redirect URLs list. When deployed, add your real HTTPS domain as well.
+5. For production, use a verified domain and configure email delivery and confirmation settings appropriately.
+
+The current frontend supports email/password sign-up, sign-in, sign-out, and password-reset email requests. Whether a new user can sign in immediately depends on the project's email-confirmation setting. The dashboard behind authentication is still a demo dashboard; live transaction integration is the next milestone.
