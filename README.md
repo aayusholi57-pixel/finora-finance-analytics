@@ -25,7 +25,7 @@ Finora is a personal finance dashboard for recording income and expenses, planni
 
 ## Current status
 
-**Scaffold stage.** The first milestone establishes the frontend shell and design direction. Database integration, authentication, transactions, and analytics will be implemented in subsequent milestones. Do not enter real financial information until authentication and database access policies are implemented and reviewed.
+**Frontend scaffold + database foundation.** The responsive dashboard shell is in place. An initial Supabase migration now defines profiles, transactions, monthly budgets, recurring transactions, indexes, update timestamps, and Row Level Security ownership policies. A browser client helper reads configuration from environment variables. The dashboard UI still uses illustrative demo data; authentication and live database CRUD are not wired in yet. Follow [SUPABASE_SETUP.md](./SUPABASE_SETUP.md) to create a dedicated Supabase project and apply the migration. Do not enter real financial information until authentication, live data flows, and database access policies are implemented and tested.
 
 ## Local development
 
@@ -40,11 +40,12 @@ Open the local URL printed by Vite.
 
 1. Responsive dashboard shell and reusable UI primitives
 2. Transaction CRUD and category management
-3. Supabase schema, authentication, and Row Level Security
-4. Budgets, recurring payments, and analytics
-5. CSV import/export and monthly reports
-6. Unit, integration, and end-to-end tests
-7. CI checks and production deployment
+3. Wire Supabase authentication and session-aware route/UI states
+4. Connect transaction CRUD to the secured Supabase tables
+5. Build database-backed budgets, recurring payments, and analytics
+6. CSV import/export and monthly reports
+7. Unit, integration, and end-to-end tests
+8. CI checks and production deployment
 
 ## Security principles
 
