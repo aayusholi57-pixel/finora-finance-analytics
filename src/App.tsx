@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import {
   ArrowDownLeft, ArrowUpRight, Bell, CalendarDays, ChevronDown, CircleHelp,
-  CreditCard, Download, LayoutDashboard, LogOut, Menu, MoreHorizontal,
+  CreditCard, Download, LayoutDashboard, Menu, MoreHorizontal,
   Plus, Search, Settings, ShieldCheck, Sparkles, Target, TrendingUp,
   Wallet, X, ArrowUpRightFromSquare,
 } from 'lucide-react';
